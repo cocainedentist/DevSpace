@@ -1,0 +1,15 @@
+<%- include("../partials/header", { hideNav: true }) %>
+<div class="card auth-card">
+  <h1 class="brand"><img src="/images/logo.png" alt="DevSpace"></h1>
+  <h2>회원가입</h2>
+  <% if (error) { %><p class="error"><%= error %></p><% } %>
+  <form action="/register" method="POST">
+    <label>이름<input type="text" name="name" required></label>
+    <label>Email<input type="email" name="email" required></label>
+    <label>비밀번호<input type="password" name="password" required></label>
+    <label>비밀번호 확인<input type="password" name="password2" required></label>
+    <button type="submit" class="primary full">가입하기</button>
+  </form>
+  <p class="muted center">이미 계정이 있나요? <a href="/login">로그인</a></p>
+</div>
+<%- include("../partials/footer") %>

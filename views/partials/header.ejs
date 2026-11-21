@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== "undefined" ? title + " · " : "" %>DevSpace</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<% if (typeof hideNav === "undefined" || !hideNav) { %>
+<div class="app">
+  <aside class="sidebar">
+    <a href="/projects" class="logo"><img src="/images/logo.png" alt="DevSpace"></a>
+    <nav>
+      <a href="/projects">프로젝트</a>
+      <a href="/snippets">코드</a>
+      <a href="/notes">메모</a>
+      <a href="/tasks">작업</a>
+      <a href="/links">링크</a>
+      <a href="/files">파일</a>
+    </nav>
+  </aside>
+  <main class="content">
+    <header class="topbar">
+      <form action="/search" method="GET" class="search">
+        <input type="search" name="q" placeholder="프로젝트, 코드, 메모 검색...">
+      </form>
+    </header>
+<% } else { %>
+<main class="auth-wrap">
+<% } %>
