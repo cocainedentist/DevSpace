@@ -1,0 +1,30 @@
+<%- include("../partials/header") %>
+<div class="page-head">
+  <div>
+    <h1><%= project.name %></h1>
+    <p class="muted"><%= project.description %></p>
+    <small class="muted">Last Updated: <%= project.updatedAt.toLocaleDateString("ko-KR") %></small>
+  </div>
+  <div class="actions">
+    <a href="/projects/<%= project._id %>/edit" class="btn">수정</a>
+    <form action="/projects/<%= project._id %>?_method=DELETE" method="POST" onsubmit="return confirm('정말 삭제할까요?')">
+      <button type="submit" class="danger">삭제</button>
+    </form>
+  </div>
+</div>
+
+<!-- TODO: 탭(Tasks / Code / Notes / Links / Files) 과 각 목록을 여기에 붙이기 -->
+<nav class="tabs">
+  <a href="/tasks?projectId=<%= project._id %>">Tasks</a>
+  <a href="/snippets?projectId=<%= project._id %>">Code</a>
+  <a href="/notes?projectId=<%= project._id %>">Notes</a>
+  <a href="/links?projectId=<%= project._id %>">Links</a>
+  <a href="/files?projectId=<%= project._id %>">Files</a>
+</nav>
+
+<div class="board">
+  <% ["To do", "In Progress", "Need Review", "Done"].forEach(col => { %>
+    <section class="column"><h4><%= col %></h4><p class="muted">작업 관리 구현 후 표시</p></section>
+  <% }) %>
+</div>
+<%- include("../partials/footer") %>

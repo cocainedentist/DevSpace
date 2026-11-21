@@ -1,0 +1,19 @@
+<%- include("../partials/header", { hideNav: true }) %>
+<div class="card auth-card">
+  <h1 class="brand"><img src="/images/logo.png" alt="DevSpace"></h1>
+  <h2>Welcome Back</h2>
+  <p class="muted">Sign in to continue to your workspace.</p>
+  <% if (error) { %><p class="error"><%= error %></p><% } %>
+  <form action="/login" method="POST">
+    <label>Email<input type="email" name="email" placeholder="you@example.com" required></label>
+    <label>Password
+      <span class="pw">
+        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+        <button type="button" class="ghost" onclick="const p=document.getElementById('password');p.type=p.type==='password'?'text':'password'">👁</button>
+      </span>
+    </label>
+    <button type="submit" class="primary full">Sign In</button>
+  </form>
+  <p class="muted center">계정이 없나요? <a href="/register">회원가입</a></p>
+</div>
+<%- include("../partials/footer") %>

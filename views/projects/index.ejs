@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<div class="page-head">
+  <h1>프로젝트</h1>
+  <a href="/projects/new" class="btn primary">+ Add Project</a>
+</div>
+<% if (projects.length === 0) { %>
+  <p class="muted">아직 프로젝트가 없습니다. 새 프로젝트를 만들어 보세요.</p>
+<% } else { %>
+  <div class="grid">
+    <% projects.forEach(p => { %>
+      <a href="/projects/<%= p._id %>" class="card project-card">
+        <h3><%= p.name %></h3>
+        <p class="muted"><%= p.description || "설명 없음" %></p>
+        <small class="muted">수정일 <%= p.updatedAt.toLocaleDateString("ko-KR") %> · 멤버 <%= p.members.length %>명</small>
+      </a>
+    <% }) %>
+  </div>
+<% } %>
+<%- include("../partials/footer") %>

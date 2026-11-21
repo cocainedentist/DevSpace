@@ -1,0 +1,23 @@
+{
+  "name": "devspace",
+  "version": "1.0.0",
+  "description": "개발자 협업 통합 관리 플랫폼 (2026-2 고급웹프로그래밍 기말 프로젝트)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^18.0.10",
+    "ejs": "^7.0.2",
+    "express": "^5.3.0",
+    "express-async-handler": "^1.2.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.12.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
